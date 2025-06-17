@@ -1,22 +1,26 @@
 package com.mikemcavoy.blog;
 
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
 
-import com.mikemcavoy.blog.services.FileLoader;
+import com.mikemcavoy.blog.tokenizer.Lexer;
 
 @Component
 public class ApplicationStartup implements CommandLineRunner {
-    private final FileLoader fileLoader;
+    private final ResourceLoader resourceLoader;
 
-    public ApplicationStartup(FileLoader fileLoader) {
-        this.fileLoader = fileLoader;
+    public ApplicationStartup(ResourceLoader resourceLoader) {
+        this.resourceLoader = resourceLoader;
     }
 
     @Override
     public void run(String... args) throws Exception {
-        String contents = fileLoader.load("data/posts/sample.md");
-        System.out.println(contents);
+        Resource resource = resourceLoader.getResource("classpath:" + "data/posts/sample.md");
+        Lexer lexer = new Lexer(resource.getInputStream());
+        lexer.lex();
+        lexer.logTokens();
     }
 
 }
