@@ -1,8 +1,5 @@
-# Hello World
-
 This is a **sample** post
-Another line
 
-## Sub Heading
+Another line.
 
-The end
+The end!.

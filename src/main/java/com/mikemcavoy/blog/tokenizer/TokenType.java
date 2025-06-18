@@ -1,6 +1,6 @@
 package com.mikemcavoy.blog.tokenizer;
 
-public enum Type {
+public enum TokenType {
     HASHTAG("#"),
     TEXT(""),
     STAR("*"),
@@ -10,7 +10,7 @@ public enum Type {
 
     public final String value;
 
-    Type(String value) {
+    TokenType(String value) {
         this.value = value;
     }
 }

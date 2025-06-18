@@ -50,13 +50,13 @@ public class Lexer {
             return;
         } else {
             this.linePosition = 0;
-            this.generateToken(Type.EMPTYLINE, "");
+            this.generateToken(TokenType.EMPTYLINE, "");
         }
 
         this.nextLine();
     }
 
-    private void generateToken(Type type, String value) {
+    private void generateToken(TokenType type, String value) {
         int position = this.linePosition;
 
         if (value.length() != 0) {
@@ -79,23 +79,23 @@ public class Lexer {
     public void lex() {
         if (this.isAtEnd) {
             this.linePosition++;
-            this.generateToken(Type.EOF, "");
+            this.generateToken(TokenType.EOF, "");
             return;
         }
 
-        Type tokenType;
+        TokenType tokenType;
         String value = "";
         switch (this.currentChar) {
             case "#":
-                tokenType = Type.HASHTAG;
+                tokenType = TokenType.HASHTAG;
                 break;
 
             case "*":
-                tokenType = Type.STAR;
+                tokenType = TokenType.STAR;
                 break;
 
             case "\n":
-                this.generateToken(Type.NEWLINE, "");
+                this.generateToken(TokenType.NEWLINE, "");
                 this.nextLine();
                 this.lex();
                 return;
@@ -116,13 +116,17 @@ public class Lexer {
                     }
                 }
 
-                tokenType = Type.TEXT;
+                tokenType = TokenType.TEXT;
                 break;
 
         }
 
         this.generateToken(tokenType, value);
-        this.nextCharacter();
+
+        if (tokenType != TokenType.TEXT) {
+            this.nextCharacter();
+        }
+
         this.lex();
     }
 }
