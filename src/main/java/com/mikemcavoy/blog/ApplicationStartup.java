@@ -5,6 +5,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
 
+import com.mikemcavoy.blog.generator.Generator;
 import com.mikemcavoy.blog.parser.Parser;
 import com.mikemcavoy.blog.tokenizer.Lexer;
 
@@ -28,6 +29,10 @@ public class ApplicationStartup implements CommandLineRunner {
         var tree = parser.parse();
 
         System.out.println(tree);
+
+        String htmlString = Generator.generateHtmlString(tree);
+
+        System.out.println(htmlString);
     }
 
 }
