@@ -94,6 +94,14 @@ public class Lexer {
                 tokenType = TokenType.STAR;
                 break;
 
+            case "-":
+                tokenType = TokenType.HYPEN;
+                break;
+
+            case ":":
+                tokenType = TokenType.COLON;
+                break;
+
             case "\n":
                 this.generateToken(TokenType.NEWLINE, "");
                 this.nextLine();
@@ -105,7 +113,7 @@ public class Lexer {
 
                 while (!exit) {
                     switch (this.currentChar) {
-                        case "#", "*", "\n":
+                        case "#", "*", "\n", "-", ":":
                             exit = true;
                             break;
 

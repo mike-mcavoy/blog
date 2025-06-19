@@ -6,7 +6,9 @@ public enum TokenType {
     STAR("*"),
     NEWLINE("\n"),
     EMPTYLINE(""),
-    EOF("");
+    EOF(""),
+    HYPEN("-"),
+    COLON(":");
 
     public final String value;
 

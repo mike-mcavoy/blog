@@ -6,5 +6,8 @@ public enum Type {
     STRONG,
     TEXT,
     PARAGRAPH,
-    EMPTYLINE
+    EMPTYLINE,
+    META,
+    SLUG,
+    CREATED,
 }

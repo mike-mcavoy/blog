@@ -8,15 +8,13 @@ import java.util.Optional;
 import com.mikemcavoy.blog.parser.Node;
 import com.mikemcavoy.blog.tokenizer.Token;
 
-public class ElementParser extends BaseParser {
+public class MetaLine extends BaseParser {
 
     @Override
     public Optional<Node> match(List<Token> tokens) {
-        return this.matchFirst(tokens,
-                new ArrayList<>(Arrays.asList(
-                        new MetaBlockParser(),
-                        new SentenceAndNewLineParser(),
-                        new EmptyLineParser())));
+        return matchFirst(tokens, new ArrayList<>(Arrays.asList(
+                new SlugParser(),
+                new CreatedParser())));
     }
 
 }
