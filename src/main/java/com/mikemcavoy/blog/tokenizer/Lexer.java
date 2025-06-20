@@ -113,7 +113,7 @@ public class Lexer {
 
                 while (!exit) {
                     switch (this.currentChar) {
-                        case "#", "*", "\n", "-", ":":
+                        case "#", "*", "\n", ":":
                             exit = true;
                             break;
 

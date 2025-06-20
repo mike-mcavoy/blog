@@ -1,6 +1,6 @@
 ---
-slug: firstpost
-created: 19062025
+slug: first-post
+created: 19-06-2025
 ---
 
 This is a **sample** post
