@@ -5,8 +5,9 @@
 - [x] As a developer I am able to tokenize a markdown file.
 - [x] As a developer I am able to convert markdown tokens into an AST
 - [x] As a developer I am able to convert AST into valid HTML
-- [ ] As a developer I am able to save all posts to an in memory database upon application startup.
-- [ ] As a developer I am retrieve all posts from a REST endpoint.
+- [x] As a developer I am able to save a post to an in memory database upon application startup.
+- [x] As a developer I am retrieve all posts from a REST endpoint.
+- [ ] As a developer I can read multiple post files and save them into the database.
 
 ## Bugs
 

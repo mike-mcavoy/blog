@@ -20,7 +20,7 @@ public class CreatedParser extends BaseParser {
         if (found && tokens.get(0).value().equals("created")) {
             Node createdNode = new Node();
             createdNode.setType(Type.CREATED);
-            createdNode.setValue(tokens.get(2).value());
+            createdNode.setValue(tokens.get(2).value().trim());
             createdNode.setConsumed(4);
 
             return Optional.ofNullable(createdNode);

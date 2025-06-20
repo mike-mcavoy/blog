@@ -20,7 +20,7 @@ public class SlugParser extends BaseParser {
         if (found && tokens.get(0).value().equals("slug")) {
             Node slugNode = new Node();
             slugNode.setType(Type.SLUG);
-            slugNode.setValue(tokens.get(2).value());
+            slugNode.setValue(tokens.get(2).value().trim());
             slugNode.setConsumed(4);
 
             return Optional.ofNullable(slugNode);
